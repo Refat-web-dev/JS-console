@@ -21,14 +21,22 @@ if (num >= 3 && num <= 5) {
 else {
     console.log("Incorrect");
 }
-let digit = prompt("Enter a number");
-if (isNaN(digit)) {
-  console.log("Incorrect");
-} else if (digit % 2 === 0) {
-  console.log("Even");
-} else {
-  console.log("Odd");
+let digit = prompt("Enter a number")
+if (digit % 2 !== 0 && typeof(digit) !== 'string') {
+    console.log('Odd');
+} else if (digit % 2 == 0) {
+    console.log('Even');
+} else{
+    console.log('Incorrect');
 }
+// let digit = prompt("Enter a number");
+// if (isNaN(digit)) {
+//   console.log("Incorrect");
+// } else if (digit % 2 === 0) {
+//   console.log("Even");
+// } else {
+//   console.log("Odd");
+// }
 // let count = 1;
 // do {
 //     console.log(count);
