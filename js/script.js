@@ -1,4 +1,4 @@
-let month = prompt('Enter date')
+let month = prompt('Enter a date')
 if (month >= 1 && month <= 10) {
     console.log("First decade");
 } else if (month >= 11 && month <= 20) {
@@ -8,7 +8,7 @@ if (month >= 1 && month <= 10) {
 } else {
     console.log("Incorrect");
 }
-let num = prompt('Enter number')
+let num = prompt('Enter a number')
 if (num >= 3 && num <= 5) {
     console.log("Spring");
 } else if (num >= 6 && num <= 8) {
@@ -21,13 +21,13 @@ if (num >= 3 && num <= 5) {
 else {
     console.log("Incorrect");
 }
-let digit = prompt("Enter number")
-if (digit % 2 !== 0) {
-    console.log('Odd');
-} else if (digit % 2 == 0) {
-    console.log('Even');
+let digit = prompt("Enter a number");
+if (isNaN(digit)) {
+  console.log("Incorrect");
+} else if (digit % 2 === 0) {
+  console.log("Even");
 } else {
-    console.log('Incorrect');
+  console.log("Odd");
 }
 // let count = 1;
 // do {
