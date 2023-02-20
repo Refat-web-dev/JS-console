@@ -41,6 +41,8 @@ if (user.charAt(0) == 'a') {
         else {
             console.log('Недостаточно средств');
         }
+    } if(isNaN(Number(age))){
+        console.log('Введите число!');
     }
     else {
         console.log('Возраст не тот');
