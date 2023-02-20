@@ -20,6 +20,34 @@ if (name === "alex") {
 } else {
     console.log('Пользователь не найден досвсидули');
 }
+let user = prompt('Введите имя').toLocaleLowerCase().trim()
+if (user.charAt(0) == 'a') {
+    console.log(user);
+    let age = prompt('Введите возраст')
+    if (age >= 20 && age <= 40) {
+        console.log(age);
+        let pocketBalance = prompt('Сколько при себе денег?')
+        if (pocketBalance >= 100) {
+            console.log(pocketBalance);
+            let capacity = 10
+            let booked = 8
+            let freePlaces = +prompt('Сколько вас?')
+            if (freePlaces + booked <= capacity) {
+                console.log('Входите');
+            } else (
+                console.log('Мест недостаточно')
+            )
+        }
+        else {
+            console.log('Недостаточно средств');
+        }
+    }
+    else {
+        console.log('Возраст не тот');
+    }
+} else {
+    console.log('Мы дескриминируем людей с именами не на "А"');
+}
 // let month = prompt('Enter a date')
 // if (month >= 1 && month <= 10) {
 //     console.log("First decade");
