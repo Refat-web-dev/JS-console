@@ -1,34 +1,56 @@
-let month = prompt('Enter a date')
-if (month >= 1 && month <= 10) {
-    console.log("First decade");
-} else if (month >= 11 && month <= 20) {
-    console.log("Second decade");
-} else if (month >= 21 && month <= 31) {
-    console.log("Third decade");
+let name = prompt('Как вас зовут?').toLowerCase().trim()
+if (name === "alex") {
+    console.log(name);
+    let account = prompt('Номер счета?')
+    if (account == 7777) {
+        console.log(account);
+        let money = 10000
+        let expenses = prompt('Сколько обналичить?')
+        if (money >= expenses) {
+            console.log(`Снято ${expenses}`, `
+Осталось ${money - expenses}`);
+        }
+        else {
+            console.log('Недостаточно средств');
+        }
+    } else {
+        console.log('Пользователь не найден досвсидули');
+    }
+
 } else {
-    console.log("Incorrect");
+    console.log('Пользователь не найден досвсидули');
 }
-let num = prompt('Enter a number')
-if (num >= 3 && num <= 5) {
-    console.log("Spring");
-} else if (num >= 6 && num <= 8) {
-    console.log("Summer");
-} else if (num >= 9 && num <= 11) {
-    console.log("Autumn");
-} else if (num >= 1 && num <= 2 || num == 12) {
-    console.log("Winter");
-}
-else {
-    console.log("Incorrect");
-}
-let digit = prompt("Enter a number")
-if (digit % 2 !== 0 && typeof(digit) !== 'string') {
-    console.log('Odd');
-} else if (digit % 2 == 0) {
-    console.log('Even');
-} else{
-    console.log('Incorrect');
-}
+// let month = prompt('Enter a date')
+// if (month >= 1 && month <= 10) {
+//     console.log("First decade");
+// } else if (month >= 11 && month <= 20) {
+//     console.log("Second decade");
+// } else if (month >= 21 && month <= 31) {
+//     console.log("Third decade");
+// } else {
+//     console.log("Incorrect");
+// }
+// let num = prompt('Enter a number')
+// if (num >= 3 && num <= 5) {
+//     console.log("Spring");
+// } else if (num >= 6 && num <= 8) {
+//     console.log("Summer");
+// } else if (num >= 9 && num <= 11) {
+//     console.log("Autumn");
+// } else if (num >= 1 && num <= 2 || num == 12) {
+//     console.log("Winter");
+// }
+// else {
+//     console.log("Incorrect");
+// }
+// let digit = prompt("Enter a number")
+// if (digit % 2 !== 0 && typeof(digit) !== 'string') {
+//     console.log('Odd');
+// } else if (digit % 2 == 0) {
+//     console.log('Even');
+// } else{
+//     console.log('Incorrect');
+// }
 // let digit = prompt("Enter a number");
 // if (isNaN(digit)) {
 //   console.log("Incorrect");
