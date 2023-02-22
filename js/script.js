@@ -1,55 +1,60 @@
-let name = prompt('Как вас зовут?').toLowerCase().trim()
-if (name === "alex") {
-    console.log(name);
-    let account = prompt('Номер счета?')
-    if (account == 7777) {
-        console.log(account);
-        let money = 10000
-        let expenses = prompt('Сколько обналичить?')
-        if (money >= expenses) {
-            console.log(`Снято ${expenses}`, `
-Осталось ${money - expenses}`);
-        }
-        else {
-            console.log('Недостаточно средств');
-        }
-    } else {
-        console.log('Пользователь не найден досвсидули');
-    }
+let names = 'refat shakhnoza amal jamshed shoxrux abdulbosit manucher'
+let userName = prompt('Enter a name').toLocaleLowerCase().trim()
+userName == 'refat' || userName == 'shakhnoza' || userName == 'manucher' || userName == 'amal' || userName == 'shoxrux' || userName == 'abdulbosit' || userName == 'jamshed'
+    ? alert(`Hello ${userName[0].toUpperCase() + userName.slice(1)}`)
+    : alert(`${userName[0].toUpperCase() + userName.slice(1)} is not find`)
+// let name = prompt('Как вас зовут?').toLowerCase().trim()
+// if (name === "alex") {
+//     console.log(name);
+//     let account = prompt('Номер счета?')
+//     if (account == 7777) {
+//         console.log(account);
+//         let money = 10000
+//         let expenses = prompt('Сколько обналичить?')
+//         if (money >= expenses) {
+//             console.log(`Снято ${expenses}`, `
+// Осталось ${money - expenses}`);
+//         }
+//         else {
+//             console.log('Недостаточно средств');
+//         }
+//     } else {
+//         console.log('Пользователь не найден досвсидули');
+//     }
 
-} else {
-    console.log('Пользователь не найден досвсидули');
-}
-let user = prompt('Введите имя').toLocaleLowerCase().trim()
-if (user.charAt(0) == 'a') {
-    console.log(user);
-    let age = prompt('Введите возраст')
-    if (age >= 20 && age <= 40) {
-        console.log(age);
-        let pocketBalance = prompt('Сколько при себе денег?')
-        if (pocketBalance >= 100) {
-            console.log(pocketBalance);
-            let capacity = 10
-            let booked = 8
-            let freePlaces = +prompt('Сколько вас?')
-            if (freePlaces + booked <= capacity) {
-                console.log('Входите');
-            } else (
-                console.log('Мест недостаточно')
-            )
-        }
-        else {
-            console.log('Недостаточно средств');
-        }
-    } if(isNaN(Number(age))){
-        console.log('Введите число!');
-    }
-    else {
-        console.log('Возраст не тот');
-    }
-} else {
-    console.log('Мы дескриминируем людей с именами не на "А"');
-}
+// } else {
+//     console.log('Пользователь не найден досвсидули');
+// }
+// let user = prompt('Введите имя').toLocaleLowerCase().trim()
+// if (user.charAt(0) == 'a') {
+//     console.log(user);
+//     let age = prompt('Введите возраст')
+//     if (age >= 20 && age <= 40) {
+//         console.log(age);
+//         let pocketBalance = prompt('Сколько при себе денег?')
+//         if (pocketBalance >= 100) {
+//             console.log(pocketBalance);
+//             let capacity = 10
+//             let booked = 8
+//             let freePlaces = +prompt('Сколько вас?')
+//             if (freePlaces + booked <= capacity) {
+//                 console.log('Входите');
+//             } else (
+//                 console.log('Мест недостаточно')
+//             )
+//         }
+//         else {
+//             console.log('Недостаточно средств');
+//         }
+//     } if(isNaN(Number(age))){
+//         console.log('Введите число!');
+//     }
+//     else {
+//         console.log('Возраст не тот');
+//     }
+// } else {
+//     console.log('Мы дескриминируем людей с именами не на "А"');
+// }
 // let month = prompt('Enter a date')
 // if (month >= 1 && month <= 10) {
 //     console.log("First decade");
