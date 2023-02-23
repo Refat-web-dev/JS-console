@@ -1,3 +1,31 @@
+let name = prompt("Как вас зовут?").toLowerCase().trim();
+let money = 10000
+let expenses
+let account = 7777
+name === "alex" || name === "алекс"
+    ? prompt("Номер счета?") == account
+        ? (expenses = prompt("Сколько обналичить?")) <= money
+            ? alert(`Снято ${expenses} 
+Осталось ${money - expenses}`)
+            : alert('Недостаточно средств')
+        : alert("Пользователь не найден досвидули")
+    : alert("Пользователь не найден досвидули");
+let user = prompt('Введите имя').toLocaleLowerCase().trim()
+let pocketBalance
+let capacity = 10
+let booked = 8
+let places
+user.charAt(0) == 'a'
+    ? (age = prompt(`Здравствуйте ${user[0].toUpperCase() + user.slice(1)} введите возраст`))
+        ? age >= 20 && age <= 40
+            ? (pocketBalance = prompt('Сколько при себе денег?')) >= 100
+                ? (places = +prompt('Сколько вас?')) + booked <= capacity
+                    ? alert('Входите')
+                    : alert('Мест недостаточно')
+                : alert('Недостаточно средств')
+            : alert('Возраст не тот')
+        : alert('Возраст не тот')
+    : alert('Мы дескриминируем людей с именами не на "А"')
 let names = 'refat shakhnoza amal jamshed shoxrux abdulbosit manucher'
 let userName = prompt('Enter a name').toLocaleLowerCase().trim()
 userName == 'refat' || userName == 'shakhnoza' || userName == 'manucher' || userName == 'amal' || userName == 'shoxrux' || userName == 'abdulbosit' || userName == 'jamshed'
