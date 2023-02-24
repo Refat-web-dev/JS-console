@@ -1,4 +1,4 @@
-let arr = ['refat', 'amal', 'shakhnoza', 'jamshed', 'shoxrux ', 'abdulbosit', 'manucher',]
+let arr = ['refat', 'amal', 'shakhnoza', 'jamshed', 'shoxrux', 'abdulbosit', 'manucher',]
 let name = prompt(`Какое имя удалить из списка: 
 ${arr.join(', ')} ?`).toLowerCase().trim()
 if (arr.indexOf(name) > arr.length - 1 || arr.indexOf(name) < 0) {
