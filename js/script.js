@@ -5,7 +5,7 @@ let to = prompt('to')
 
 let filtered = carPrices.filter(car => car >= from & car <= to)
 
-console.log(filtered);
+alert(filtered.length > 0 ? filtered : "error");
 // let arr = ['refat', 'amal', 'shakhnoza', 'jamshed', 'shoxrux', 'abdulbosit', 'manucher',]
 // let name = prompt(`Какое имя удалить из списка:
 // ${arr.join(', ')} ?`).toLowerCase().trim()
