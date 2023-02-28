@@ -3,7 +3,7 @@ let carPrices = [9000, 4000, 16000, 15000, 22000, 37000, 70000, 55000, 40000]
 let from = prompt('from')
 let to = prompt('to')
 
-let filtered = carPrices.filter(car => car >= from & car <= to)
+let filtered = carPrices.filter(price => price >= from & price <= to)
 
 alert(filtered.length > 0 ? filtered : "error");
 // let arr = ['refat', 'amal', 'shakhnoza', 'jamshed', 'shoxrux', 'abdulbosit', 'manucher',]
