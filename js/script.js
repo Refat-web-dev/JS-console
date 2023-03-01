@@ -1,11 +1,58 @@
-let carPrices = [9000, 4000, 16000, 15000, 22000, 37000, 70000, 55000, 40000]
+let arr = [
+    {
+        name: 'alex',
+        age: 18
+    },
+    {
+        name: 'refat',
+        age: 19
+    },
+    {
+        name: 'amal',
+        age: 14
+    },
+    {
+        name: 'shoxrux',
+        age: 17
+    },
+    {
+        name: 'abdulvosid',
+        age: 16
+    },
+    {
+        name: 'jamshed',
+        age: 18
+    },
+    {
+        name: 'manuchexr',
+        age: 18
+    },
+    {
+        name: 'Faxriddin',
+        age: 24
+    },
+    {
+        name: 'Shakhnoza',
+        age: 15
+    },
+    {
+        name: 'Timur',
+        age: 17
+    },
+]
 
-let from = prompt('from')
-let to = prompt('to')
+let overEightTeen = arr.filter(over => over.age >= 18)
+let underEightTeen = arr.filter(under => under.age < 18)
+ (overEightTeen.sort((a, b) => a.age - b.age));
+console.log(underEightTeen.sort((a, b) => a.age - b.age));
+// let carPrices = [9000, 4000, 16000, 15000, 22000, 37000, 70000, 55000, 40000]
 
-let filtered = carPrices.filter(price => price >= from & price <= to)
+// let from = prompt('from')
+// let to = prompt('to')
 
-alert(filtered.length > 0 ? filtered : "error");
+// let filtered = carPrices.filter(price => price >= from & price <= to)
+
+// alert(filtered.length > 0 ? filtered : "error");
 // let arr = ['refat', 'amal', 'shakhnoza', 'jamshed', 'shoxrux', 'abdulbosit', 'manucher',]
 // let name = prompt(`Какое имя удалить из списка:
 // ${arr.join(', ')} ?`).toLowerCase().trim()
