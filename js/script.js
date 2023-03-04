@@ -1,50 +1,91 @@
-let arr = [
-    {
-        name: 'alex',
-        age: 18
+refat = {
+        age: 19,
+        hairColor: "Braun",
+        webDev: true,
+        object: {
+            something: 'something ',
+            something: 'something ',
+            something: 'something ',
+            something: 'something ',
+        }
     },
-    {
-        name: 'refat',
-        age: 19
-    },
-    {
-        name: 'amal',
-        age: 14
-    },
-    {
-        name: 'shoxrux',
-        age: 17
-    },
-    {
-        name: 'abdulvosid',
-        age: 16
-    },
-    {
-        name: 'jamshed',
-        age: 18
-    },
-    {
-        name: 'manuchexr',
-        age: 18
-    },
-    {
-        name: 'Faxriddin',
-        age: 24
-    },
-    {
-        name: 'Shakhnoza',
-        age: 15
-    },
-    {
-        name: 'Timur',
-        age: 17
-    },
-]
+    amal = {
+        footSize: 40,
+        eyeColor: "Black",
+        SMM: false,
+        objectTwo: {
+            something: 'something ',
+            something: 'something ',
+            something: 'something ',
+            something: 'something ',
+        }
+    };
+let newCopy = Object.assign({}, refat, amal);
+let allKeyses = Object.keys(newCopy);
+let allValues = Object.values(newCopy);
+let totalData = Object.assign({}, { allKeyses }, { allValues })
+console.log(totalData);
+totalData = [...allKeyses, ...allValues]
+let types = {
+    string: [],
+    number: [],
+    object: [],
+    boolean: [],
+};
+totalData.forEach((item) => {
+    types[typeof item].push(item)
+})
+console.log(types);
+// if (typeof(types) === "string") {
 
-let overEightTeen = arr.filter(over => over.age >= 18)
-let underEightTeen = arr.filter(under => under.age < 18)
-console.log(underEightTeen.sort((a, b) => a.age - b.age));
-console.log(overEightTeen.sort((a, b) => a.age - b.age));
+// }
+// let arr = [
+//     {
+//         name: 'alex',
+//         age: 18
+//     },
+//     {
+//         name: 'refat',
+//         age: 19
+//     },
+//     {
+//         name: 'amal',
+//         age: 14
+//     },
+//     {
+//         name: 'shoxrux',
+//         age: 17
+//     },
+//     {
+//         name: 'abdulvosid',
+//         age: 16
+//     },
+//     {
+//         name: 'jamshed',
+//         age: 18
+//     },
+//     {
+//         name: 'manuchexr',
+//         age: 18
+//     },
+//     {
+//         name: 'Faxriddin',
+//         age: 24
+//     },
+//     {
+//         name: 'Shakhnoza',
+//         age: 15
+//     },
+//     {
+//         name: 'Timur',
+//         age: 17
+//     },
+// ]
+
+// let overEightTeen = arr.filter(over => over.age >= 18)
+// let underEightTeen = arr.filter(under => under.age < 18)
+// console.log(underEightTeen.sort((a, b) => a.age - b.age));
+// console.log(overEightTeen.sort((a, b) => a.age - b.age));
 // let carPrices = [9000, 4000, 16000, 15000, 22000, 37000, 70000, 55000, 40000]
 
 // let from = prompt('from')
@@ -65,7 +106,7 @@ console.log(overEightTeen.sort((a, b) => a.age - b.age));
 // alert(`Оставшиеся имена:
 // ${arr.join(', ')}`)
 // console.log(arr);
-    // let name = prompt("Как вас зовут?").toLowerCase().trim();
+// let name = prompt("Как вас зовут?").toLowerCase().trim();
 // let money = 10000
 // let expenses
 // let account = 7777
