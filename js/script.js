@@ -1,89 +1,168 @@
+let products = [{
+        name: "milk",
+        type: "milk",
+        price: 12000
+    },
+    {
+        name: "tomato",
+        type: "vegetables",
+        price: 20000
+    },
+    {
+        name: "govyadina",
+        type: "meat",
+        price: 88000
+    },
+    {
+        name: "konyak",
+        type: "alcohol",
+        price: 50000
+    },
+    {
+        name: "tvorog",
+        type: "milk",
+        price: 13000
+    },
+    {
+        name: "potato",
+        type: "vegetables",
+        price: 5000
+    },
+    {
+        name: "kruryatina",
+        type: "meat",
+        price: 30000
+    },
+    {
+        name: "baranina",
+        type: "meat",
+        price: 80000
+    },
+    {
+        name: "kolbasa",
+        type: "meat",
+        price: 60000
+    },
+    {
+        name: "pivo",
+        type: "alcohol",
+        price: 6000
+    },
+    {
+        name: "vine",
+        type: "alcohol",
+        price: 45000
+    },
+    {
+        name: "whiskey",
+        type: "alcohol",
+        price: 10000000
+    },
+    {
+        name: "cheese",
+        type: "milk",
+        price: 600000
+    },
+    {
+        name: "yogurt",
+        type: "milk",
+        price: 10000
+    },
+]
+
+// 20
+let salesProducts = []
+for (el of products) {
+    el.price *= 0.8
+    salesProducts.push(el)
+}
+console.log(salesProducts);
 // Отфильтровать задачи в переменные а и b
 // Сохранить количество в ключе count
 // Сохранить сами задачи в массиве-ключе arr
-let arr = [{
-        "userId": 1,
-        "id": 1,
-        "title": "delectus aut au`tem",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 2,
-        "title": "quis ut nam facilis et officia qui",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 3,
-        "title": "fugiat veniam minus",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 4,
-        "title": "et porro tempora",
+// let arr = [{
+//         "userId": 1,
+//         "id": 1,
+//         "title": "delectus aut au`tem",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 2,
+//         "title": "quis ut nam facilis et officia qui",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 3,
+//         "title": "fugiat veniam minus",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 4,
+//         "title": "et porro tempora",
 
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 5,
-        "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 6,
-        "title": "qui ullam ratione quibusdam voluptatem quia omnis",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 7,
-        "title": "illo expedita consequatur quia in",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 8,
-        "title": "quo adipisci enim quam ut ab",
-        "completed": true
-    },
-    {
-        "userId": 1,
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 5,
+//         "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 6,
+//         "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 7,
+//         "title": "illo expedita consequatur quia in",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 8,
+//         "title": "quo adipisci enim quam ut ab",
+//         "completed": true
+//     },
+//     {
+//         "userId": 1,
 
-        "id": 9,
-        "title": "molestiae perspiciatis ipsa",
-        "completed": false
-    },
-    {
-        "userId": 1,
-        "id": 10,
-        "title": "illo est ratione doloremque quia maiores aut",
-        "completed": true
-    },
-]
-let a = {
-    count: 0,
-    arrOne: []
-}
+//         "id": 9,
+//         "title": "molestiae perspiciatis ipsa",
+//         "completed": false
+//     },
+//     {
+//         "userId": 1,
+//         "id": 10,
+//         "title": "illo est ratione doloremque quia maiores aut",
+//         "completed": true
+//     },
+// ]
+// let a = {
+//     count: 0,
+//     arrOne: []
+// }
 
-let b = {
-    count: 0,
-    arrTwo: []
-}
-arr.forEach(el => {
-    let key = el.completed
-    if (key) {
-        a.arrOne.push(el.title)
-        a.count++
-    } else {
-        b.arrTwo.push(el.title)
-        b.count++
-    }
-})
-console.log(a, b);
+// let b = {
+//     count: 0,
+//     arrTwo: []
+// }
+// arr.forEach(el => {
+//     let key = el.completed
+//     if (key) {
+//         a.arrOne.push(el.title)
+//         a.count++
+//     } else {
+//         b.arrTwo.push(el.title)
+//         b.count++
+//     }
+// })
+// console.log(a, b);
 // refat = {
 //         age: 19,
 //         hairColor: "Braun",
