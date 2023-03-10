@@ -1,82 +1,192 @@
-let products = [{
-        name: "milk",
-        type: "milk",
-        price: 12000
+let arr = [{
+        id: 1,
+        name: "AZIZs_KABLUK",
+        budget: 500000,
+        tax: 12,
+        expensesPerYear: [{
+                for: "design",
+                total: 60000,
+            },
+            {
+                for: "material",
+                total: 70000,
+            },
+            {
+                for: "place",
+                total: 120000,
+            },
+        ],
     },
     {
-        name: "tomato",
-        type: "vegetables",
-        price: 20000
+        id: 2,
+        name: "KAMERON_CINEMA",
+        budget: 600000,
+        tax: 12,
+        expensesPerYear: [{
+                for: "camera",
+                total: 90000,
+            },
+            {
+                for: "actors",
+                total: 140000,
+            },
+            {
+                for: "electricity",
+                total: 50000,
+            },
+        ],
     },
     {
-        name: "govyadina",
-        type: "meat",
-        price: 88000
+        id: 3,
+        name: "ISKANDARs_ZOO",
+        budget: 450000,
+        tax: 12,
+        expensesPerYear: [{
+                for: "animals",
+                total: 100000,
+            },
+            {
+                for: "cloune",
+                total: 15000,
+            },
+            {
+                for: "food",
+                total: 70000,
+            },
+        ],
     },
     {
-        name: "konyak",
-        type: "alcohol",
-        price: 50000
+        id: 4,
+        name: "AMINs_SOOOO",
+        budget: 800000,
+        tax: 12,
+        expensesPerYear: [{
+                for: "house",
+                total: 200000,
+            },
+            {
+                for: "cars",
+                total: 150000,
+            },
+            {
+                for: "family",
+                total: 300000,
+            },
+            {
+                for: "girls",
+                total: 90000,
+            },
+        ],
     },
     {
-        name: "tvorog",
-        type: "milk",
-        price: 13000
+        id: 5,
+        name: "new comp",
+        budget: 1000000,
+        tax: 12,
+        expensesPerYear: [{
+                for: "house",
+                total: 200000,
+            },
+            {
+                for: "cars",
+                total: 150000,
+            },
+            {
+                for: "family",
+                total: 300000,
+            },
+            {
+                for: "girls",
+                total: 90000,
+            },
+        ],
     },
-    {
-        name: "potato",
-        type: "vegetables",
-        price: 5000
-    },
-    {
-        name: "kruryatina",
-        type: "meat",
-        price: 30000
-    },
-    {
-        name: "baranina",
-        type: "meat",
-        price: 80000
-    },
-    {
-        name: "kolbasa",
-        type: "meat",
-        price: 60000
-    },
-    {
-        name: "pivo",
-        type: "alcohol",
-        price: 6000
-    },
-    {
-        name: "vine",
-        type: "alcohol",
-        price: 45000
-    },
-    {
-        name: "whiskey",
-        type: "alcohol",
-        price: 10000000
-    },
-    {
-        name: "cheese",
-        type: "milk",
-        price: 600000
-    },
-    {
-        name: "yogurt",
-        type: "milk",
-        price: 10000
-    },
-]
+];
 
-// 20
-let salesProducts = []
-for (el of products) {
-    el.price *= 0.8
-    salesProducts.push(el)
+for (let el of arr) {
+    el.expensesPerMonth = el.expensesPerYear.reduce((a, b) => a + b.total, 0) / el.tax
+    el.monthBudget = el.budget / el.tax
+    let ratio = el.monthBudget - el.expensesPerMonth
+    console.log('Разница ' +
+        Math.round(ratio));
 }
-console.log(salesProducts);
+// max = arr.reduce((a, b) => a.taxSum > b.taxSum ? a : b)
+// min = arr.reduce((a, b) => a.taxSum < b.taxSum ? a : b)
+// console.log(max, min);
+
+// let products = [{
+//         name: "milk",
+//         type: "milk",
+//         price: 12000
+//     },
+//     {
+//         name: "tomato",
+//         type: "vegetables",
+//         price: 20000
+//     },
+//     {
+//         name: "govyadina",
+//         type: "meat",
+//         price: 88000
+//     },
+//     {
+//         name: "konyak",
+//         type: "alcohol",
+//         price: 50000
+//     },
+//     {
+//         name: "tvorog",
+//         type: "milk",
+//         price: 13000
+//     },
+//     {
+//         name: "potato",
+//         type: "vegetables",
+//         price: 5000
+//     },
+//     {
+//         name: "kruryatina",
+//         type: "meat",
+//         price: 30000
+//     },
+//     {
+//         name: "baranina",
+//         type: "meat",
+//         price: 80000
+//     },
+//     {
+//         name: "kolbasa",
+//         type: "meat",
+//         price: 60000
+//     },
+//     {
+//         name: "pivo",
+//         type: "alcohol",
+//         price: 6000
+//     },
+//     {
+//         name: "vine",
+//         type: "alcohol",
+//         price: 45000
+//     },
+//     {
+//         name: "whiskey",
+//         type: "alcohol",
+//         price: 100000
+//     },
+//     {
+//         name: "cheese",
+//         type: "milk",
+//         price: 600000
+//     },
+//     {
+//         name: "yogurt",
+//         type: "milk",
+//         price: 10000
+//     },
+// ]
+// let sortered = products.sort((a, b) => a.price - b.price)
+// console.log(sortered.at(-1), sortered[0]);
 // Отфильтровать задачи в переменные а и b
 // Сохранить количество в ключе count
 // Сохранить сами задачи в массиве-ключе arr
@@ -421,4 +531,6 @@ console.log(salesProducts);
 //         console.log(size)
 //     }
 
+// }
+// }
 // }
