@@ -1,115 +1,233 @@
 let arr = [{
-        id: 1,
-        name: "AZIZs_KABLUK",
-        budget: 500000,
-        tax: 12,
-        expensesPerYear: [{
-                for: "design",
-                total: 60000,
-            },
-            {
-                for: "material",
-                total: 70000,
-            },
-            {
-                for: "place",
-                total: 120000,
-            },
-        ],
+        id: Math.random(),
+        name: 'Timur',
+        info: {
+            school: '235',
+            faculity: 'SMM'
+        },
     },
     {
-        id: 2,
-        name: "KAMERON_CINEMA",
-        budget: 600000,
-        tax: 12,
-        expensesPerYear: [{
-                for: "camera",
-                total: 90000,
-            },
-            {
-                for: "actors",
-                total: 140000,
-            },
-            {
-                for: "electricity",
-                total: 50000,
-            },
-        ],
+        id: Math.random(),
+        name: 'Imran',
+        info: {
+            school: 'ne izvestno',
+            faculity: 'programming'
+        },
     },
     {
-        id: 3,
-        name: "ISKANDARs_ZOO",
-        budget: 450000,
-        tax: 12,
-        expensesPerYear: [{
-                for: "animals",
-                total: 100000,
-            },
-            {
-                for: "cloune",
-                total: 15000,
-            },
-            {
-                for: "food",
-                total: 70000,
-            },
-        ],
+        id: Math.random(),
+        name: 'Aminjon',
+        info: {
+            school: '444',
+            faculity: 'Dizayn'
+        },
     },
     {
-        id: 4,
-        name: "AMINs_SOOOO",
-        budget: 800000,
-        tax: 12,
-        expensesPerYear: [{
-                for: "house",
-                total: 200000,
-            },
-            {
-                for: "cars",
-                total: 150000,
-            },
-            {
-                for: "family",
-                total: 300000,
-            },
-            {
-                for: "girls",
-                total: 90000,
-            },
-        ],
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
     },
     {
-        id: 5,
-        name: "new comp",
-        budget: 1000000,
-        tax: 12,
-        expensesPerYear: [{
-                for: "house",
-                total: 200000,
-            },
-            {
-                for: "cars",
-                total: 150000,
-            },
-            {
-                for: "family",
-                total: 300000,
-            },
-            {
-                for: "girls",
-                total: 90000,
-            },
-        ],
+        id: Math.random(),
+        name: 'Muxammad',
+        info: {
+            school: '5555',
+            faculity: 'Backend'
+        },
     },
-];
+    {
+        id: Math.random(),
+        name: 'Timur',
+        info: {
+            school: '235',
+            faculity: 'SMM'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Imran',
+        info: {
+            school: 'ne izvestno',
+            faculity: 'programming'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Aminjon',
+        info: {
+            school: '444',
+            faculity: 'Dizayn'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
+    },
 
-for (let el of arr) {
-    el.expensesPerMonth = el.expensesPerYear.reduce((a, b) => a + b.total, 0) / el.tax
-    el.monthBudget = el.budget / el.tax
-    let ratio = el.monthBudget - el.expensesPerMonth
-    console.log('Разница ' +
-        Math.round(ratio));
+    {
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Muxammad',
+        info: {
+            school: '5555',
+            faculity: 'Backend'
+        },
+    },
+]
+
+let categories = [{
+        course: ' SMM',
+        count: 0
+    },
+    {
+        course: 'PROGRAMMING',
+        count: 0
+    },
+    {
+        course: '     3DSMAX',
+        count: 0
+    },
+    {
+        course: ' DIZAYN',
+        count: 0
+    },
+    {
+        course: '   BACKEND',
+        count: 0
+    },
+]
+for (let students of arr) {
+    for (let curse of categories) {
+        curse.course.trim().toLowerCase() === students.info.faculity.trim().toLocaleLowerCase() ? curse.count++ : ''
+    }
 }
+console.log(categories);
+// let arr = [{
+//         id: 1,
+//         name: "AZIZs_KABLUK",
+//         budget: 500000,
+//         tax: 12,
+//         expensesPerYear: [{
+//                 for: "design",
+//                 total: 60000,
+//             },
+//             {
+//                 for: "material",
+//                 total: 70000,
+//             },
+//             {
+//                 for: "place",
+//                 total: 120000,
+//             },
+//         ],
+//     },
+//     {
+//         id: 2,
+//         name: "KAMERON_CINEMA",
+//         budget: 600000,
+//         tax: 12,
+//         expensesPerYear: [{
+//                 for: "camera",
+//                 total: 90000,
+//             },
+//             {
+//                 for: "actors",
+//                 total: 140000,
+//             },
+//             {
+//                 for: "electricity",
+//                 total: 50000,
+//             },
+//         ],
+//     },
+//     {
+//         id: 3,
+//         name: "ISKANDARs_ZOO",
+//         budget: 450000,
+//         tax: 12,
+//         expensesPerYear: [{
+//                 for: "animals",
+//                 total: 100000,
+//             },
+//             {
+//                 for: "cloune",
+//                 total: 15000,
+//             },
+//             {
+//                 for: "food",
+//                 total: 70000,
+//             },
+//         ],
+//     },
+//     {
+//         id: 4,
+//         name: "AMINs_SOOOO",
+//         budget: 800000,
+//         tax: 12,
+//         expensesPerYear: [{
+//                 for: "house",
+//                 total: 200000,
+//             },
+//             {
+//                 for: "cars",
+//                 total: 150000,
+//             },
+//             {
+//                 for: "family",
+//                 total: 300000,
+//             },
+//             {
+//                 for: "girls",
+//                 total: 90000,
+//             },
+//         ],
+//     },
+//     {
+//         id: 5,
+//         name: "new comp",
+//         budget: 1000000,
+//         tax: 12,
+//         expensesPerYear: [{
+//                 for: "house",
+//                 total: 200000,
+//             },
+//             {
+//                 for: "cars",
+//                 total: 150000,
+//             },
+//             {
+//                 for: "family",
+//                 total: 300000,
+//             },
+//             {
+//                 for: "girls",
+//                 total: 90000,
+//             },
+//         ],
+//     },
+// ];
+
+// for (let el of arr) {
+//     el.expensesPerMonth = el.expensesPerYear.reduce((a, b) => a + b.total, 0) / el.tax
+//     el.monthBudget = el.budget / el.tax
+//     let ratio = el.monthBudget - el.expensesPerMonth
+//     console.log('Разница ' +
+//         Math.round(ratio));
+// }
 // max = arr.reduce((a, b) => a.taxSum > b.taxSum ? a : b)
 // min = arr.reduce((a, b) => a.taxSum < b.taxSum ? a : b)
 // console.log(max, min);
@@ -531,6 +649,8 @@ for (let el of arr) {
 //         console.log(size)
 //     }
 
+// }
+// }
 // }
 // }
 // }
