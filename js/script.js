@@ -115,7 +115,7 @@ for (let students of arr) {
         curse.course.trim().toLowerCase() === students.info.faculity.trim().toLocaleLowerCase() ? curse.count++ : ''
     }
 }
-console.log(categories);
+console.table(categories);
 // let arr = [{
 //         id: 1,
 //         name: "AZIZs_KABLUK",
