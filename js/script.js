@@ -105,10 +105,45 @@ let room_level = {
     tretiy: 0,
     chetvertiy: 0,
 };
+
+let totalRoomPrice = 0
+
+for (let floor of hotel) {
+    for (let cabin of floor) {
+
+        totalRoomPrice += cabin.price
+
+        if (cabin.room) {
+            rooms.all_roms.push(cabin)
+            rooms.rooms++
+        }
+        cabin.eting = Math.random().toFixed() >= 1
+
+        if (cabin.children) {
+            console.log(cabin);
+        }
+
+        for (let rank in brands) {
+            if (rank === cabin.brand.toLowerCase()) {
+                brands[rank].push(cabin)
+            }
+        }
+    }
+}
+
+console.log(brands);
+
+rooms.all_roms.sort((a, b) => a.room - b.room)
+
+console.log(rooms, rooms.all_roms.at(-1));
+
+console.log(totalRoomPrice + ' стоят все комнаты вместе взятые');
 //1 отфильтровать по категориям
 //2 добавить ключ eting с буленовым значением в каждый номер
 //3 посчитать и красиво раставить все команты переменную rooms
 //4 найти самую дорогую комнату
 //5 посчитать сколько стоит каждый этаж
+//6 посчитать сколько стоят все комнаты вместе взятые
+//7 найти все комнаты в которых живут дети
 //6 посчитать сколько стоят все комнаты вместе взятые
 //7 найти все комнаты в которых живут дети
