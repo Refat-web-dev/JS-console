@@ -131,11 +131,18 @@ for (let floor of hotel) {
     }
 }
 
+let totalFloorPrice = hotel.reduce((a, b, index) => {
+    a[index] = b.reduce((a, p) => a += p.price, 0)
+    return a
+}, {})
+
 console.log(brands);
 
 rooms.all_roms.sort((a, b) => a.room - b.room)
 
 console.log(rooms, rooms.all_roms.at(-1));
+
+console.log(totalFloorPrice)
 
 console.log(totalRoomPrice + ' стоят все комнаты вместе взятые');
 //1 отфильтровать по категориям
