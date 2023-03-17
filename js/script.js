@@ -1,5 +1,9 @@
-for (let i = 0; i <= 5; i++) {
-    for (let k = 5; k > i; k--) {
+let num
+do {
+    num = +prompt('Enter a num')
+} while (!Number(num))
+for (let i = 0; i <= num; i++) {
+    for (let k = 0; k < i; k++) {
         document.write('* ')
     }
     document.write('<br>')
