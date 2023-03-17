@@ -3,9 +3,10 @@
 /*���������*/
 
 * {
-    padding: 0;
+    padding: 20px;
     margin: 0;
     border: 0;
+    text-align: center;
 }
 
 *,
