@@ -93,10 +93,3 @@ h6 {
 
 
 /*--------------------*/
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 20px;
-}
