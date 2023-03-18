@@ -107,7 +107,7 @@ let room_level = {
 };
 
 let totalRoomPrice = 0
-
+let totaltax = 0
 let childrenRooms = []
 
 for (let floor of hotel) {
@@ -120,9 +120,12 @@ for (let floor of hotel) {
             rooms.rooms++
         }
         cabin.eting = Math.random().toFixed() >= 1
-
         if (cabin.children) {
             childrenRooms.push(cabin)
+            let salesPrice = cabin.price - (cabin.price * 20 / 100)
+            totaltax += salesPrice
+        } else {
+            totaltax += cabin.price
         }
 
         let rank = cabin.brand.toLowerCase()
@@ -141,7 +144,7 @@ for (let floor of hotel) {
     if (hotel.indexOf(floor) === 2) {
         room_level.tretiy = floor.reduce((a, b) => a + b.price, 0)
     }
-    if (hotel.indexOf(floor) ===     3) {
+    if (hotel.indexOf(floor) === 3) {
         room_level.chetvertiy = floor.reduce((a, b) => a + b.price, 0)
     }
 }
@@ -159,6 +162,7 @@ console.log(room_level)
 
 console.log(totalRoomPrice + ' стоят все комнаты вместе взятые');
 console.log(childrenRooms);
+console.log(totaltax);
 //1 отфильтровать по категориям
 //2 добавить ключ eting с буленовым значением в каждый номер
 //3 посчитать и красиво раставить все команты переменную rooms
