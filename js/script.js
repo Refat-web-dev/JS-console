@@ -1,16 +1,15 @@
-let sortArray = (array) => {
-    let len = array.length;
+let sortArray = (arr) => {
+    let len = arr.length
     for (let i = 0; i < len; i++) {
-      let temp;
-      for (let k = i + 1; k < len; k++) {
-        if (array[k] < array[i]) {
-          temp = array[i];
-          array[i] = array[k];
-          array[k] = temp;
+        for (let k = i + 1; k < len; k++) {
+            if (arr[i] > arr[k]) {
+                let temp = arr[i]
+                arr[i] = arr[k]
+                arr[k] = temp
+            }
+
         }
-      }
     }
-    return array;
-  };
-  
-  console.log(sortArray([5, 2, 7, 1, 9])); 
+    return arr
+}
+console.log(sortArray([13,-20, 43, 24, 23, 5, -425, 5443, 2, 341, 21]));
