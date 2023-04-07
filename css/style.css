@@ -98,7 +98,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #FFF4ED;
-
+    animation: disco 10s infinite linear ;
 }
 
 .one {
@@ -163,4 +163,25 @@ body {
 
 .gradient-button:hover {
     background-position: right center;
+}
+@keyframes disco {
+    0% {
+        background: red;
+    }
+
+    25% {
+        background: green;
+    }
+
+    50% {
+        background: blue;
+    }
+
+    75% {
+        background: orange;
+    }
+
+    100% {
+        background: red;
+    }
 }
