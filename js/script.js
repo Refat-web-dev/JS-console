@@ -1,9 +1,16 @@
-let n = +prompt('')
-
-let random = (nums, num) => {
-    for (let i = 1; i <= num; i++) {
-        Math.random().toFixed() > 0 ? nums.push(Math.ceil(Math.random() * i)) : nums.unshift(Math.ceil(Math.random() * i))
-    }
-    return nums
+let num = document.querySelector('h1')
+let plus = document.querySelector('.button-plus')
+let minus = document.querySelector('.button-minus')
+let random = document.querySelector('.button-random')
+let i = 0
+plus.onclick = () => {
+    i++
+    num.innerHTML = i
 }
-console.log(random([], n));
+minus.onclick = () => {
+    i--
+    num.innerHTML = i
+}
+random.onclick = () => {
+    i = num.innerHTML = +(Math.random()).toFixed(3) * 1000
+}
