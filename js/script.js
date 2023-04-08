@@ -11,7 +11,7 @@ let body = document.body
 let total = 0
 let headerFixed = document.querySelector('.header_fixed')
 let exit = document.querySelector('.exit')
-// let item = document.querySelector('.item')
+let item = document.querySelectorAll('.item')
 blue.onmouseenter = () => {
     blue.classList.add("border")
     colorText.innerHTML = 'Color - Blue'
@@ -84,10 +84,9 @@ body.onscroll = () => {
         headerFixed.classList.add('view')
     }
 }
-
-// item.onclick = () => {
-//     item.style.border = "5px solid blue"
-// }
+item.forEach(a => a.onclick = () => {
+    a.style.border = "1px solid #0071e3"
+})
 exit.onclick = () => {
     headerFixed.style.display = 'none'
 }
