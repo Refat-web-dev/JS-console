@@ -12,6 +12,10 @@ let total = 0
 let headerFixed = document.querySelector('.header_fixed')
 let exit = document.querySelector('.exit')
 let item = document.querySelectorAll('.item')
+let modalbtn = document.querySelector('.modal')
+let modalWindow = document.querySelector('.modal_window')
+let modalBg = document.querySelector('.modal_bg')
+let modalExit = document.querySelectorAll('.modal_exit')
 blue.onmouseenter = () => {
     blue.classList.add("border")
     colorText.innerHTML = 'Color - Blue'
@@ -85,8 +89,27 @@ body.onscroll = () => {
     }
 }
 item.forEach(a => a.onclick = () => {
-    a.style.border = "1px solid #0071e3"
+    a.classList.toggle('item_border')
 })
 exit.onclick = () => {
     headerFixed.style.display = 'none'
 }
+modalbtn.onclick = () => {
+    modalWindow.style.display = 'block'
+    modalBg.style.display = 'block'
+    modalWindow.classList.add('modal_act')
+    setTimeout(() => {
+        modalBg.style.opacity = '1'
+        modalWindow.style.opacity = '1'
+    }, 200);
+}
+modalExit.forEach(btn => {
+    btn.onclick = () => {
+        modalBg.style.opacity = '0'
+        modalWindow.style.opacity = '0'
+        setTimeout(() => {
+            modalWindow.style.display = 'none'
+            modalBg.style.display = 'none'
+        }, 200);
+    }
+})
