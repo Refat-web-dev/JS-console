@@ -92,12 +92,6 @@ body.onscroll = () => {
     if (total > 35) {
         headerFixed.classList.add('view')
     }
-    lines.forEach(line =>{
-        line.style.display = 'block'
-        setTimeout(() => {
-            line.style.opacity = '1'
-        }, 200);
-    })
 }
 item.forEach(a => a.onclick = () => {
     a.classList.toggle('item_border')
@@ -113,6 +107,15 @@ modalbtn.onclick = () => {
         modalBg.style.opacity = '1'
         modalWindow.style.opacity = '1'
     }, 200);
+
+    body.onscroll = () => {
+        lines.forEach(line => {
+            line.style.display = 'block'
+            setTimeout(() => {
+                line.style.opacity = '1'
+            }, 200);
+        })
+    }
 }
 modalExit.forEach(btn => {
     btn.onclick = () => {
@@ -122,7 +125,7 @@ modalExit.forEach(btn => {
             modalWindow.style.display = 'none'
             modalBg.style.display = 'none'
         }, 200);
-        lines.forEach(line =>{
+        lines.forEach(line => {
             line.style.opacity = '0'
             setTimeout(() => {
                 line.style.display = 'none'
