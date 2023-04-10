@@ -592,14 +592,31 @@ header {
     border-radius: 20px;
     opacity: 0;
     z-index: 2;
-    overflow: hidden;
     padding-bottom: 20px;
+}
+.line{
+    display: none;
+    position: absolute;
+    height: 1890px;
+    background-color: rgb(58, 58, 255);
+    width: 4px;
+    opacity: 0;
+    transition: .3s ease;
+}
+.after {
+    top: -50px;
+    left: -4px;
+}
+
+.before {
+    top: -50px;
+    right: -4px;
 }
 
 .modal_exit_style {
     position: absolute;
-    top: 1%;
-    left: 2%;
+    top: 15px;
+    left: 15px;
     background: #E8E8ED;
     width: 36px;
     height: 36px;
@@ -750,6 +767,7 @@ select {
 
     img {
         rotate: 180deg;
+        transition: .5s ease;
     }
 
     padding: 20px 0;
@@ -759,6 +777,7 @@ select {
 .accordeon_two {
     img {
         rotate: 0deg;
+        transition: .5s ease;
     }
 }
 
@@ -832,11 +851,13 @@ li {
 .konspekt {
     color: #86868B;
     font-size: 12px;
+
     p:first-child {
         margin: 29px 0 10px;
     }
 }
-.more_questions{
+
+.more_questions {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -844,8 +865,29 @@ li {
     font-size: 12px;
     gap: 3px;
 }
-.specialist_two{
-    position:inherit;
+
+.specialist_two {
+    position: inherit;
     width: 40px;
     height: 40px;
+}
+
+.first {
+    height: 780px;
+    overflow: hidden;
+    transition: .5s ease;
+}
+
+.second {
+    height: 73px;
+    overflow: hidden;
+    transition: .5s ease;
+}
+
+.height {
+    height: 780px;
+}
+
+.height_two {
+    height: 73px;
 }

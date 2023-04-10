@@ -16,6 +16,11 @@ let modalbtn = document.querySelector('.modal')
 let modalWindow = document.querySelector('.modal_window')
 let modalBg = document.querySelector('.modal_bg')
 let modalExit = document.querySelectorAll('.modal_exit')
+let first = document.querySelector('.first')
+let second = document.querySelector('.second')
+let two = document.querySelector('#two')
+let lines = document.querySelectorAll('.line')
+
 blue.onmouseenter = () => {
     blue.classList.add("border")
     colorText.innerHTML = 'Color - Blue'
@@ -87,6 +92,12 @@ body.onscroll = () => {
     if (total > 35) {
         headerFixed.classList.add('view')
     }
+    lines.forEach(line =>{
+        line.style.display = 'block'
+        setTimeout(() => {
+            line.style.opacity = '1'
+        }, 200);
+    })
 }
 item.forEach(a => a.onclick = () => {
     a.classList.toggle('item_border')
@@ -111,5 +122,27 @@ modalExit.forEach(btn => {
             modalWindow.style.display = 'none'
             modalBg.style.display = 'none'
         }, 200);
+        lines.forEach(line =>{
+            line.style.opacity = '0'
+            setTimeout(() => {
+                line.style.display = 'none'
+            }, 200);
+        })
     }
 })
+first.onclick = () => {
+    first.classList.toggle('height_two')
+    if (one.style.rotate === '0deg') {
+        one.style.rotate = '180deg'
+    } else {
+        one.style.rotate = '0deg'
+    }
+}
+second.onclick = () => {
+    second.classList.toggle('height')
+    if (two.style.rotate === '180deg') {
+        two.style.rotate = '0deg'
+    } else {
+        two.style.rotate = '180deg'
+    }
+}
