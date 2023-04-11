@@ -1,12 +1,5 @@
-let blue = document.querySelector('.blue')
-let purple = document.querySelector('.purple')
-let yellow = document.querySelector('.yellow')
-let midnight = document.querySelector('.midnight')
-let starlight = document.querySelector('.starlight')
-let red = document.querySelector('.red_prod')
 let redCircle = document.querySelector('.one_item')
-let colorText = document.querySelector('.color')
-let asideImg = document.querySelector('.left_aside')
+const colorText = document.querySelector('.color')
 let body = document.body
 let total = 0
 let headerFixed = document.querySelector('.header_fixed')
@@ -20,73 +13,41 @@ let first = document.querySelector('.first')
 let second = document.querySelector('.second')
 let two = document.querySelector('#two')
 let lines = document.querySelectorAll('.line')
+const colorItems = document.querySelectorAll('.color_item')
+const asideImg = document.querySelector('.left_aside')
+const imgIphones = {
+    'blue': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-blue?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1661027942322',
+    'purple': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-purple?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1661027938735',
+    'yellow': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-yellow?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1676505838319',
+    'midnight': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-midnight?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1661027925267',
+    'starlight': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-starlight?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1661027935971',
+    'red_prod': 'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-finish-select-202209-6-7inch-product-red?wid=2560&hei=1440&fmt=p-jpg&qlt=80&.v=1661027939728',
+}
+const colorTexts = {
+    blue: 'Color - Blue',
+    purple: 'Color - Purple',
+    yellow: 'Color - Yellow',
+    midnight: 'Color - Midnight',
+    starlight: 'Color - Starlight',
+    red_prod: 'Color - (PRODUCT)RED',
 
-blue.onmouseenter = () => {
-    blue.classList.add("border")
-    colorText.innerHTML = 'Color - Blue'
 }
-blue.onmouseleave = () => {
-    blue.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-purple.onmouseenter = () => {
-    purple.classList.add("border")
-    colorText.innerHTML = 'Color - Purple'
-}
-purple.onmouseleave = () => {
-    purple.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-yellow.onmouseenter = () => {
-    yellow.classList.add("border")
-    colorText.innerHTML = 'Color - Yellow'
-}
-yellow.onmouseleave = () => {
-    yellow.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-midnight.onmouseenter = () => {
-    midnight.classList.add("border")
-    colorText.innerHTML = 'Color - Midnight'
-}
-midnight.onmouseleave = () => {
-    midnight.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-starlight.onmouseenter = () => {
-    starlight.classList.add("border")
-    colorText.innerHTML = 'Color - Starlight'
-}
-starlight.onmouseleave = () => {
-    starlight.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-red.onmouseenter = () => {
-    redCircle.classList.add("border")
-    colorText.innerHTML = 'Color - (PRODUCT)RED'
-}
-red.onmouseleave = () => {
-    redCircle.classList.remove("border")
-    colorText.innerHTML = 'Color'
-}
-blue.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-bluejpg.jpg" width="100%" alt="">'
-}
-purple.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-purple.jpg" width="100%" alt="">'
-}
-yellow.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-yellow.jpg" width="100%" alt="">'
-}
-midnight.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-midnight.jpg" width="100%" alt="">'
-}
-starlight.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-starlight.jpg" width="100%" alt="">'
-}
-red.onclick = () => {
-    asideImg.innerHTML = '<img src="./img/iphone-red.jpg" width="100%" alt="">'
-}
+colorItems.forEach(item => {
+    item.onclick = () => {
+        let key = item.getAttribute('data-color')
+        asideImg.style.backgroundImage = `url(${imgIphones[key]})`
+    }
+    item.onmouseenter = () => {
+        let key = item.getAttribute('data-color')
+        item.classList.add("border")
+        colorText.innerHTML = colorTexts[key]
+    }
+    item.onmouseleave = () => {
+        item.classList.remove("border")
+        colorText.innerHTML = 'Color'
+    }
+})
+
 body.onscroll = () => {
     total++
     if (total > 35) {

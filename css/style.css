@@ -250,9 +250,15 @@ header {
   overflow: hidden;
   width: 66.5%;
   height: 440px;
-  background: #000;
+  background-image: url(../img/iphone-start.jpg);
+  background-position: 50% 50%;
+  background-size: cover;
+  background-repeat: no-repeat;
   position: -webkit-sticky;
   position: sticky;
+  -webkit-transition: .5s linear;
+  -o-transition: .5s linear;
+  transition: .5s linear;
   top: 150px; }
 
 .right_aside {
@@ -382,7 +388,14 @@ header {
 
 .red {
   color: #AF1E2D;
-  font-weight: 600; }
+  font-weight: 600;
+  position: absolute;
+  left: 120%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100px; }
 
 .dimension {
   font-size: 12px;
