@@ -86,7 +86,8 @@ a {
     opacity: 0.7; }
 
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  background: #000; }
 
 .burger {
   position: fixed;
@@ -94,8 +95,8 @@ body {
   right: -20%;
   width: 20%;
   height: 100vh;
-  background-color: #000;
-  color: #fff;
+  background-color: rgba(0, 0, 0, 0.814);
+  color: gray;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -106,7 +107,10 @@ body {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 80px 40px;
+  padding: 80px 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-transition: .5s ease;
   -o-transition: .5s ease;
   transition: .5s ease; }
@@ -157,7 +161,10 @@ body {
   gap: 10px;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 .brg_close {
   background-color: #fff; }
@@ -231,13 +238,6 @@ body {
   font-size: 48px;
   line-height: 59px; }
 
-input {
-  position: absolute;
-  display: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; }
-
 .wrap_text {
   font-size: 24px;
   line-height: 30px;
@@ -270,20 +270,19 @@ input {
   gap: 11px;
   margin-bottom: 39px; }
 
+.btns_act {
+  color: #fff;
+  background-color: #0071E3; }
+
 .btns {
   border-radius: 10px;
   font-weight: 500;
   font-size: 18px;
   color: #797979;
   background: #CFE7FF;
-  padding: 10px 53px;
-  -webkit-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: .3s ease; }
-
-.btn_active {
-  color: #fff;
-  background-color: #0071E3; }
+  padding: 10px 53px; }
+  .btns:checked {
+    background-color: #fff; }
 
 .space {
   display: -webkit-box;
@@ -302,7 +301,6 @@ input {
   gap: 7px; }
 
 .space_item {
-  cursor: pointer;
   padding: 18px 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -312,10 +310,7 @@ input {
   justify-content: space-between;
   width: 321px;
   border: 2px solid #CFE7FF;
-  border-radius: 10px;
-  -webkit-transition: .3s ease;
-  -o-transition: .3s ease;
-  transition: .3s ease; }
+  border-radius: 10px; }
   .space_item p {
     font-weight: 600;
     font-size: 18px;
