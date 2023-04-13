@@ -159,9 +159,9 @@ body {
   -ms-flex-pack: center;
   justify-content: center; }
 
-.brg_close {
+.brg_style {
   background-color: #fff; }
-  .brg_close::after {
+  .brg_style::after {
     content: '';
     width: 30px;
     height: 3px;
@@ -172,7 +172,7 @@ body {
     left: 50%;
     translate: -50% -50%;
     rotate: 45deg; }
-  .brg_close::before {
+  .brg_style::before {
     content: '';
     width: 30px;
     height: 3px;
