@@ -51,14 +51,11 @@ let addPrices = document.querySelectorAll('.space_item')
 let orgPrice = priceView.innerHTML
 let split = document.querySelector(".split")
 addPrices.forEach(btn => {
-    btn.onclick = () => {
+    btn.addEventListener('click', () => {
+        document.querySelector('.act')?.classList.remove('act')
+        btn.classList.add('act')
         let key = +btn.getAttribute('data-price')
         priceView.innerText = [+orgPrice.split(',').join('') + key].join('').split('').join(' ').replace(' ', ',').replaceAll(' ','')
-        
-        console.log();
-        btn.style.border = '2px solid #007FFF'
-    }
-    btn.onmouseleave = () => {
-        btn.style.border = '2px solid #CFE7FF'
-    }
+    })
+    
 })
