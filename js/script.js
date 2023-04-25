@@ -47,10 +47,10 @@ form.onsubmit = (event) => {
             text.style.color = 'blue'
             text.innerHTML = ""
 
-            btn.style.backgroundColor = 'blue'
 
             blue++
             if (blue === 7) {
+                btn.style.backgroundColor = 'blue'
                 error.innerHTML = `${0}/ ${inputs.length}`
             }
             success.innerHTML = `${blue}/ ${inputs.length}`
