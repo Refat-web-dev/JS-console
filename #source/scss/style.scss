@@ -121,24 +121,26 @@ h1 {
     display: flex;
     gap: 55px;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 27px;
+    position: relative;
+    overflow: hidden;
 }
 
 .side {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 31px;
-    overflow: hidden;
-    animation: swipe 2s linear 1;
 }
 
 .item {
-    p {
-        margin-bottom: 6px;
+    p:last-child {
+        font-size: 11px;
+        color: #595959;
     }
 
     input {
+        margin: 6px 0;
         padding: 20px 12px;
 
         width: 277px;
@@ -168,18 +170,38 @@ button {
     color: #FFFFFF;
 }
 
-@keyframes swipe {
+.left {
+    animation: tobottom 3s linear;
+}
+
+.right {
+    animation: totop 3s linear;
+}
+
+@keyframes tobottom {
     0% {
-        opacity: 0;
-        width: 0;
-        height: 0;
-        border-radius: 50px;
+        position: relative;
+        top: -1000px;
+        left: 0px;
     }
 
     100% {
-        opacity: 1;
-        width: 100%;
-        height: 100%;
-        border-radius: 4px;
+        position: relative;
+        top: 0px;
+        left: 0px;
+    }
+}
+
+@keyframes totop {
+    0% {
+        position: relative;
+        bottom: -1000px;
+        left: 0px;
+    }
+
+    100% {
+        position: relative;
+        bottom: 0px;
+        left: 0px;
     }
 }
