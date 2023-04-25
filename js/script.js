@@ -51,7 +51,7 @@ form.onsubmit = (event) => {
 
             blue++
             if (blue === 7) {
-                error~.innerHTML = `${0}/ ${inputs.length}`
+                error.innerHTML = `${0}/ ${inputs.length}`
             }
             success.innerHTML = `${blue}/ ${inputs.length}`
         }
