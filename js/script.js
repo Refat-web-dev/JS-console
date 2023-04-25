@@ -59,8 +59,6 @@ form.onsubmit = (event) => {
 
     if (allInputsFilled) {
         submit()
-    } else {
-        alert("У вас пропущенo")
     }
 }
 
