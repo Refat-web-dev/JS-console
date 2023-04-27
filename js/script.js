@@ -12,11 +12,43 @@ let error = document.querySelector('#error')
 all.innerHTML = inputes.length
 need.innerHTML = inputs.length
 
+inputes.forEach(inp => {
+    let patterns = {
+        name: /^[a-z а-я ,.'-]+$/i,
+        mom: /^[a-z а-я ,.'-]+$/i,
+        dad: /^[a-z а-я ,.'-]+$/i,
+        surname: /^[a-z а-я ,.'-]+$/i,
+        email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+        phone: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+        age: /^\S[0-9]{0,2}$/,
+        jS: /\w/,
+        cSS: /\w/,
+        hTML: /\w/,
+        about: /\w/,
+        car: /\w/
+    }
+    function validate(regex, field) {
+        if (regex.test(field.value)) {
+            field.style.border = "1px solid green"
+        } else {
+            field.style.border = "1px solid red"
+        }
+
+        let greenInputs = form.querySelectorAll('.needed input[style="border: 1px solid green;"]')
+        let redInputs = form.querySelectorAll('.needed input[style="border: 1px solid red;"]')
+        success.innerHTML = `${greenInputs.length}/ ${inputs.length}`
+        error.innerHTML = `${redInputs.length}/ ${inputs.length}`
+    }
+    inp.onkeyup = () => validate(patterns[inp.name], inp)
+
+})
+
+
 form.onsubmit = (event) => {
     event.preventDefault()
     let allInputsFilled = true
-    blue = 0
-    red = 0
+    let blue = 0
+    let red = 0
     inputs.forEach(inp => {
 
         inp.style.border = "1px solid blue"
@@ -69,5 +101,5 @@ function submit() {
         user[key] = value
     });
     form.reset()
-
+    console.log(user);
 }
