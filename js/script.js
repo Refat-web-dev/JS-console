@@ -1,4 +1,4 @@
-import arr from "../modules/db"
+import arr from "../modules/db.js"
 let icons = ['usd.svg', 'star.svg', 'box.svg']
 let cont = document.querySelector(".container")
 
