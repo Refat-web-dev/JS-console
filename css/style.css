@@ -94,7 +94,8 @@ button {
   flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 65px; }
   .center h1 {
     font-weight: 600;
     font-size: 48px; }
@@ -118,7 +119,7 @@ button {
     cursor: pointer; }
 
 .container {
-  width: 80%;
+  max-width: 1155px;
   margin: 0 auto;
   display: -ms-grid;
   display: grid;
@@ -156,7 +157,8 @@ button {
     .item .description p {
       color: gray; }
     .item .description .row {
-      margin-top: 0; }
+      margin-top: 10px;
+      margin-bottom: 30px; }
     .item .description .feature {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -169,10 +171,13 @@ button {
     .item .description button {
       all: unset;
       border-radius: 10px;
-      padding: 20px 0px;
+      padding: 16px 0px;
       border: 1px solid #000000;
       font-weight: 600;
       background-color: #fff;
       font-size: 18px;
       text-align: center;
-      color: #000; }
+      color: #000;
+      -webkit-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s; }

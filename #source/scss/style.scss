@@ -102,6 +102,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 65px;
 
     h1 {
 
@@ -132,7 +133,7 @@ button {
 
 
 .container {
-    width: 80%;
+    max-width: 1155px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -164,7 +165,8 @@ button {
         }
 
         .row {
-            margin-top: 0;
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
 
         .feature {
@@ -177,13 +179,15 @@ button {
         button {
             all: unset;
             border-radius: 10px;
-            padding: 20px 0px;
+            padding: 16px 0px;
             border: 1px solid #000000;
             font-weight: 600;
             background-color: #fff;
             font-size: 18px;
             text-align: center;
             color: #000;
+            transition: .3s;
         }
     }
 }
+
