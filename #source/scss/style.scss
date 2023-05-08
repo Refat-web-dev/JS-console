@@ -203,10 +203,11 @@ button {
 }
 
 
+
 .burger {
     position: fixed;
     top: 0;
-    right: -30%;
+    right: 0%;
     width: 30%;
     height: 100vh;
     background-color: #000;
@@ -315,6 +316,11 @@ button {
         color: #FFF;
 
     }
+}
+
+.submit {
+    background: #e6e6e6;
+    color: #000;
 }
 
 .brg_style {
