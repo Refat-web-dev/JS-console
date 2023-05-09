@@ -3,7 +3,9 @@ import products from "../modules/db.js"
 let cont = document.querySelector(".container")
 let brg_list = document.querySelector(".burger_list")
 let total_rate = document.querySelector(".total_rate")
-let submit = total_rate.parentNode.nextElementSibling
+let checkboxMain = document.createElement('input')
+checkboxMain.type = "checkbox"
+checkboxMain.checked = "true"
 
 // modules
 
@@ -112,7 +114,7 @@ openBtn.onclick = () => {
 let closeBtn = document.querySelectorAll('.brg_close')
 closeBtn.forEach(btn => {
     btn.onclick = () => {
-        burger.style.right = '-30%'
+        burger.style.right = '-31%'
         bgrbg.style.opacity = "0"
         setTimeout(() => {
             bgrbg.style.display = "none"
@@ -130,6 +132,7 @@ function reloadTwo() {
         for (let el of cart) {
             if (item.id === el) {
                 let brg_item = document.createElement('div')
+                let checkbox = document.createElement('input')
                 let item_left = document.createElement('div')
                 let left_img = document.createElement('img')
                 let item_center = document.createElement('div')
@@ -160,6 +163,8 @@ function reloadTwo() {
                 delet.classList.add('delete')
                 total_price.classList.add('total_price')
 
+                checkbox.type = "checkbox"
+                checkbox.checked = "true"
                 left_img.src = item.image
                 left_img.alt = "invalid img"
                 item_descr.innerHTML = item.category
@@ -172,17 +177,17 @@ function reloadTwo() {
                 delet.innerHTML = "Удалить"
                 total_price.innerHTML = item.price *= item_span.innerHTML
 
-                brg_item.append(item_left, item_center, item_right)
+                brg_item.append(checkbox, item_left, item_center, item_right)
                 item_left.append(left_img)
                 item_center.append(item_descr, center_row)
                 center_row.append(saler, counter)
                 counter.append(minus, item_span, plus, one)
                 one.prepend(one_count)
                 item_right.append(delet, total_price)
-                brg_list.append(brg_item)
+                brg_list.append(checkboxMain, brg_item)
+                brg_list.before(checkboxMain)
 
 
-                total += item.price
                 plus.onclick = () => {
                     total += item.price
                     item_span.innerHTML++
@@ -192,15 +197,37 @@ function reloadTwo() {
                 }
 
                 minus.onclick = () => {
-                    total -= item.price
-                    if (item_span.innerHTML === 1) {
+                    if (item_span.innerHTML === "1") {
                         item_span.innerHTML++
                         one.style.display = 'none'
+                        reloadTwo()
                     }
-                    item_span.innerHTML--
-                    total_price.innerHTML = one_count.innerHTML * item_span.innerHTML
-                    one.style.display = 'block'
-                    total_rate.innerHTML = total.toFixed(2)
+                    else {
+                        total -= item.price
+                        item_span.innerHTML--
+                        total_price.innerHTML = one_count.innerHTML * item_span.innerHTML
+                        one.style.display = 'block'
+                        total_rate.innerHTML = total.toLocaleString("uk-Uk")
+                    }
+                }
+
+                checkboxMain.addEventListener("click", () => {
+                    checkbox.checked = !checkbox.checked;
+                });
+
+                if (checkbox.checked) {
+                    total += item.price
+                }
+
+                checkbox.onchange = () => {
+                    let digit = +total_price.innerHTML
+                    if (checkbox.checked) {
+                        total += digit
+                    } else {
+                        total -= digit
+                    }
+                    total_rate.innerHTML = total.toLocaleString("uk-Uk")
+
                 }
 
                 delet.onclick = () => {
@@ -213,7 +240,7 @@ function reloadTwo() {
             }
         }
     }
-    
+
     if (cart.length >= 1) {
         round.style.opacity = '1'
         round.style.scale = '1'
@@ -223,3 +250,95 @@ function reloadTwo() {
         round.style.scale = '0'
     }
 }
+
+// form 
+
+let form = document.forms.saled
+let inputs = form.querySelectorAll('.modal_window input')
+let btn = form.querySelector(".modal_window button")
+console.log(form);
+inputs.forEach(inp => {
+    let patterns = {
+        name: /^[a-z а-я ,.'-]+$/i,
+        surname: /^[a-z а-я ,.'-]+$/i,
+        phone: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
+        pass: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gim
+    }
+    function validate(regex, field) {
+        if (regex.test(field.value)) {
+            field.style.border = "1px solid green"
+        } else {
+            field.style.border = "1px solid red"
+        }
+    }
+    inp.onkeyup = () => validate(patterns[inp.name], inp)
+
+})
+
+
+form.onsubmit = (event) => {
+    let obj = {}
+    let arr = []
+    event.preventDefault()
+    let allInputsFilled = true
+    inputs.forEach(inp => {
+
+        inp.style.border = "1px solid blue"
+        btn.style.backgroundColor = 'black'
+
+        if (inp.value.length === 0) {
+            btn.style.backgroundColor = 'gray'
+            inp.style.border = '1px solid red'
+            allInputsFilled = false
+        }
+
+    })
+    if (allInputsFilled) {
+        let fm = new FormData(form)
+        let user = {}
+        fm.forEach((value, key) => {
+            user[key] = value
+        });
+        form.reset()
+        for (let item of products) {
+            for (let id of cart) {
+                if (item.id === id) {
+                    arr.push(item)
+                    Object.assign(obj, { arr }, { user })
+                }
+            }
+        }
+        console.log(obj);
+    }
+
+}
+
+// modal window
+
+let submit = total_rate.parentNode.nextElementSibling
+let window = document.querySelector(".modal_window")
+let modal_bg = document.querySelector(".modal_bg")
+let modal_exit = document.querySelectorAll(".modal_exit")
+
+submit.onclick = () => {
+    window.style.display = "flex"
+    modal_bg.style.display = "block"
+    setTimeout(() => {
+        window.style.opacity = "1"
+        window.style.scale = "1"
+        modal_bg.style.opacity = "1"
+    }, 300);
+}
+
+modal_exit.forEach(click => {
+    click.onclick = () => {
+        window.style.opacity = "0"
+        window.style.scale = "0"
+        modal_bg.style.opacity = "0"
+        setTimeout(() => {
+            modal_bg.style.display = "none"
+            window.style.display = "none"
+        }, 300);
+
+    }
+})
