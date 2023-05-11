@@ -415,7 +415,7 @@ button {
   background: #FFF;
   width: 30%;
   padding: 40px 0;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   translate: -50% -50%;
