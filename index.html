@@ -11,52 +11,58 @@
 </head>
 
 <body>
-    <div class="center">
-        <h1>В корзине: <span id="includes">0</span> товар</h1>
+    <h1>Добавление, изменение и удаление элемента из таблицы</h1>
+    <form name="dateYear">
         <div class="row">
-            <button id="five">Показать первые 5</button>
-            <button id="all">Показать все</button>
-        </div>
-    </div>
-    <div class="container"></div>
-    <div class="bgr_bg brg_close"></div>
-    <div class="brg_open brg_btn">
-        <img src="./img/icons/cart.svg" alt="">
-        <div class="after brg"></div>
-    </div>
-    <div class="burger">
-        <div class="brg_close  brg_style brg_btn">
-            <div class="before"></div>
-            <div class="after"></div>
-        </div>
-
-        <h2 class="burger_title">
-            Корзина
-        </h2>
-        <div class="burger_list">
-
-        </div>
-
-
-        <div class="rate">
-            <div class="top">
-                <span>Общая сумма:</span>
-                <span class="total_rate">0</span> $
-            </div>
-            <button>Оформить</button>
-        </div>
-    </div>
-    <div class="modal_bg modal_exit"></div>
-    <form name="saled">
-        <div class="modal_window ">
-            <div class="modal_exit exit_btn"></div>
-            <input type="text" name="name" placeholder="name">
-            <input type="text" name="surname" placeholder="surname">
-            <input type="tel" name="phone" placeholder="phone">
-            <input type="password" name="pass" placeholder="pass">
-            <button>Отправить</button>
+            <label>
+                <p class="title">Имя</p>
+                <input type="text" name="name" placeholder="Bruce Reyes">
+            </label>
+            <label>
+                <p class="title">Возраст</p>
+                <input type="number" name="age" placeholder="24">
+            </label>
+            <button>Показать</button>
         </div>
     </form>
+    <table>
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Имя студента</th>
+                <th>Дата рождения</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- <tr>
+                <td>1</td>
+                <td>Alex</td>
+                <td>2004</td>
+                <td>
+                    <button class="edit"></button>
+                    <button class="trash"></button>
+                </td>
+            </tr> -->
+        </tbody>
+    </table>
+    <div class="modal_bg close"></div>
+    <div class="modal">
+        <div class="modal_close close">Х</div>
+        <form name="dataEdit">
+            <div class="row">
+                <label>
+                    <p class="title">Имя</p>
+                    <input type="text" name="name" placeholder="Bruce Reyes">
+                </label>
+                <label>
+                    <p class="title">Возраст</p>
+                    <input type="number" name="age" placeholder="24">
+                </label>
+                <button>Показать</button>
+            </div>
+        </form>
+    </div>
     <script type="module" src="./js/script.js"></script>
 </body>
 
