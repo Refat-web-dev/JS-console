@@ -151,9 +151,9 @@ tr {
     background: #8bc9d0; }
 
 .edit {
-  background-image: url(../../img/icons/edit.svg); }
+  background-image: url(../img/icons/edit.svg); }
   .edit:hover {
-    background-image: url(../../img/icons/edit.svg);
+    background-image: url(../img/icons/edit.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 80%; }
