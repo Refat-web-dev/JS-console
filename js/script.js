@@ -122,7 +122,7 @@ formTwo.onsubmit = (event) => {
         let fm = new FormData(formTwo)
         let student = {
             year: new Date().getFullYear(),
-            removed: true,
+            removed: false,
             edited: false
         }
         fm.forEach((value, key) => {
@@ -131,12 +131,19 @@ formTwo.onsubmit = (event) => {
 
         student.birth = student.year - parseFloat(student.age)
         studentsTwo.push(student)
-        if (students.at(-1).removed === studentsTwo.at(-1).removed) {
-            students = students.filter(el => el.removed === studentsTwo.removed)
-            students.push(studentsTwo.at(-1))
-        }
+        students.push(studentsTwo.at(-1))
+        students = students.filter((el => el.removed === false))
         reload(students, tbody)
         formTwo.reset()
+        window.style.opacity = "0"
+        window.style.scale = "0"
+        setTimeout(() => {
+            window.style.display = "none"
+        }, 300);
+        modal_bg.style.opacity = "0"
+        setTimeout(() => {
+            modal_bg.style.display = "none"
+        }, 300);
     }
 
 }
@@ -162,8 +169,12 @@ function reload(arr, place) {
 
         delet.onclick = () => {
             students = students.filter(student => student !== item)
-            tr.remove()
-            reload(students, tbody)
+            tr.style.opacity = "0"
+            tr.style.scale = "0"
+            setTimeout(() => {
+                tr.remove()
+                reload(students, tbody)
+            }, 500);
             console.log(students);
         }
 

@@ -168,6 +168,12 @@ th {
     border-bottom: 1px solid rgb(174, 196, 216);
 }
 
+tr {
+    opacity: 1;
+    scale: 1;
+    transition: .5s linear;
+}
+
 .edit,
 .trash {
     all: unset;

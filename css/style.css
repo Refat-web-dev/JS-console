@@ -129,6 +129,11 @@ th {
   padding: 20px 0;
   border-bottom: 1px solid #aec4d8; }
 
+tr {
+  opacity: 1;
+  scale: 1;
+  transition: .5s linear; }
+
 .edit,
 .trash {
   all: unset;
