@@ -144,6 +144,8 @@ formTwo.onsubmit = (event) => {
         setTimeout(() => {
             modal_bg.style.display = "none"
         }, 300);
+        console.log(students);
+
     }
 
 }
@@ -176,6 +178,7 @@ function reload(arr, place) {
                 reload(students, tbody)
             }, 500);
             console.log(students);
+
         }
 
         edit.onclick = () => {
@@ -191,7 +194,6 @@ function reload(arr, place) {
             }, 300);
             tr.remove()
             reload(students, tbody)
-            console.log(students);
         }
 
     }
