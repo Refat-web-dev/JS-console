@@ -160,9 +160,9 @@ tr {
 
 .trash {
   background-size: 50%;
-  background-image: url(../../img/icons/trash.svg); }
+  background-image: url(../img/icons/trash.svg); }
   .trash:hover {
-    background-image: url(../../img/icons/trash.svg);
+    background-image: url(../img/icons/trash.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 50%; }
