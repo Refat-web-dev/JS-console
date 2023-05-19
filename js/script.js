@@ -1,5 +1,5 @@
 let students = []
-let studentsTwo = []
+let studentsID
 let tbody = document.querySelector("tbody")
 let window = document.querySelector(".modal")
 let closes = document.querySelectorAll(".close")
@@ -47,21 +47,18 @@ form.onsubmit = (event) => {
     if (allInputsFilled) {
         let fm = new FormData(form)
         let student = {
-            year: new Date().getFullYear(),
-            removed: false,
-            edited: false
+            id: Math.random()
         }
         fm.forEach((value, key) => {
             student[key] = value
         });
 
-        student.birth = student.year - parseFloat(student.age)
+        student.birth = new Date().getFullYear() - parseFloat(student.age)
 
         students.push(student)
         reload(students, tbody)
         form.reset()
         console.log(students);
-
     }
 
 }
@@ -120,20 +117,21 @@ formTwo.onsubmit = (event) => {
     })
     if (allInputsFilled) {
         let fm = new FormData(formTwo)
-        let student = {
-            year: new Date().getFullYear(),
-            removed: false,
-            edited: false
-        }
+        let student = {}
         fm.forEach((value, key) => {
             student[key] = value
         });
 
-        student.birth = student.year - parseFloat(student.age)
-        studentsTwo.push(student)
-        students.push(studentsTwo.at(-1))
-        students = students.filter((el => el.removed === false))
+        student.birth = new Date().getFullYear() - parseFloat(student.age)
+
+        // let finded = students.find(el => el.id === studentsID)
+        students.forEach(item => {
+            if (item.id === studentsID) {
+                Object.assign(item, student)
+            }
+        })
         reload(students, tbody)
+
         formTwo.reset()
         window.style.opacity = "0"
         window.style.scale = "0"
@@ -144,8 +142,6 @@ formTwo.onsubmit = (event) => {
         setTimeout(() => {
             modal_bg.style.display = "none"
         }, 300);
-        console.log(students);
-
     }
 
 }
@@ -182,7 +178,7 @@ function reload(arr, place) {
         }
 
         edit.onclick = () => {
-            item.removed = !item.removed
+            studentsID = item.id
             window.style.display = "block"
             setTimeout(() => {
                 window.style.opacity = "1"

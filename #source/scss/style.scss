@@ -240,7 +240,7 @@ tr {
     display: none;
     opacity: 0;
     transition: .3s ease;
-}
+}   
 
 .modal {
     display: none;
@@ -257,4 +257,8 @@ tr {
     opacity: 0;
     scale: 0;
     transition: .3s ease;
+}
+
+.error {
+    border: 2px solid rgb(255, 90, 90);
 }
