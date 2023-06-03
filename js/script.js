@@ -4,6 +4,21 @@ let tbody = document.querySelector("tbody")
 let window = document.querySelector(".modal")
 let closes = document.querySelectorAll(".close")
 let modal_bg = document.querySelector(".modal_bg")
+let newData
+let base_url = "http://localhost:6969"
+const getAllData = async () => {
+    try {
+        const res = await fetch(base_url + "/todos")
+        if (res.status === 200 || res.status === 201) {
+            const data = await res.json()
+            reload(data, tbody)
+        }
+    } catch (e) {
+        alert("error " + e)
+    }
+}
+
+getAllData()
 
 // form 
 
@@ -55,13 +70,29 @@ form.onsubmit = (event) => {
 
         student.birth = new Date().getFullYear() - parseFloat(student.age)
 
-        students.push(student)
-        reload(students, tbody)
         form.reset()
-        console.log(students);
+        createNewStudent(student)
     }
 
 }
+
+const createNewStudent = async (body) => {
+    try {
+        const res = await fetch(base_url + "/todos", {
+            method: "post",
+            body: JSON.stringify(body),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        if (res.status === 200 || res.status === 201) {
+            getAllData()
+        }
+    } catch (e) {
+        alert("error" + e)
+    }
+}
+
 
 closes.forEach(cls => {
     cls.onclick = () => {
@@ -98,7 +129,7 @@ inputes.forEach(inp => {
 })
 
 
-formTwo.onsubmit = (event) => {
+formTwo.onsubmit = async (event) => {
     event.preventDefault()
     let allInputsFilled = true
     inputes.forEach(inp => {
@@ -125,13 +156,26 @@ formTwo.onsubmit = (event) => {
         student.birth = new Date().getFullYear() - parseFloat(student.age)
 
         // let finded = students.find(el => el.id === studentsID)
-        students.forEach(item => {
-            if (item.id === studentsID) {
-                Object.assign(item, student)
+        // students.forEach(item => {
+        //     if (item.id === studentsID) {
+        //         Object.assign(item, student)
+        //     }
+        // })
+        // reload(students, tbody)
+        try {
+            const res = await fetch(base_url + "/todos/" + studentsID, {
+                method: "PUT",
+                body: JSON.stringify({ ...student }),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+            if (res.status === 200 || res.status === 201) {
+                getAllData()
             }
-        })
-        reload(students, tbody)
-
+        } catch (e) {
+            alert("error" + e)
+        }
         formTwo.reset()
         window.style.opacity = "0"
         window.style.scale = "0"
@@ -165,19 +209,22 @@ function reload(arr, place) {
         btns.prepend(edit, delet)
         place.append(tr)
 
-        delet.onclick = () => {
-            students = students.filter(student => student !== item)
-            tr.style.opacity = "0"
-            tr.style.scale = "0"
-            setTimeout(() => {
-                tr.remove()
-                reload(students, tbody)
-            }, 500);
-            console.log(students);
+        delet.onclick = async () => {
+            const res = await fetch(base_url + "/todos/" + item.id, {
+                method: "delete"
+            })
+            if (res.status === 200 || res.status === 201) {
+                tr.style.opacity = "0"
+                tr.style.scale = "0"
+                setTimeout(() => {
+                    tr.remove()
+                }, 500);
+
+            }
 
         }
 
-        edit.onclick = () => {
+        edit.onclick = async () => {
             studentsID = item.id
             window.style.display = "block"
             setTimeout(() => {
@@ -188,9 +235,8 @@ function reload(arr, place) {
             setTimeout(() => {
                 modal_bg.style.opacity = "1"
             }, 300);
-            tr.remove()
-            reload(students, tbody)
-        }
 
+        }
     }
+
 }
