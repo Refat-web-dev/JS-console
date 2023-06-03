@@ -1,26 +1,29 @@
-let students = []
-let studentsID
-let tbody = document.querySelector("tbody")
+let twentyFive = document.querySelector(".twentyFive")
+let fifty = document.querySelector(".fifty")
+let other = document.querySelector(".other")
+let mansID
+
 let window = document.querySelector(".modal")
 let closes = document.querySelectorAll(".close")
 let modal_bg = document.querySelector(".modal_bg")
-let newData
 let base_url = "http://localhost:6969"
+
 const getAllData = async () => {
     try {
         const res = await fetch(base_url + "/todos")
         if (res.status === 200 || res.status === 201) {
             const data = await res.json()
-            reload(data, tbody)
+            reload(data, fifty)
         }
     } catch (e) {
         alert("error " + e)
+        console.log(e);
     }
 }
 
 getAllData()
 
-// form 
+// form
 
 let form = document.forms.dateYear
 let inputs = form.querySelectorAll('.row input')
@@ -68,7 +71,6 @@ form.onsubmit = (event) => {
             student[key] = value
         });
 
-        student.birth = new Date().getFullYear() - parseFloat(student.age)
 
         form.reset()
         createNewStudent(student)
@@ -89,6 +91,7 @@ const createNewStudent = async (body) => {
             getAllData()
         }
     } catch (e) {
+        console.log(e);
         alert("error" + e)
     }
 }
@@ -153,17 +156,16 @@ formTwo.onsubmit = async (event) => {
             student[key] = value
         });
 
-        student.birth = new Date().getFullYear() - parseFloat(student.age)
 
-        // let finded = students.find(el => el.id === studentsID)
+        // let finded = students.find(el => el.id === mansID)
         // students.forEach(item => {
-        //     if (item.id === studentsID) {
+        //     if (item.id === mansID) {
         //         Object.assign(item, student)
         //     }
         // })
         // reload(students, tbody)
         try {
-            const res = await fetch(base_url + "/todos/" + studentsID, {
+            const res = await fetch(base_url + "/todos/" + mansID, {
                 method: "PUT",
                 body: JSON.stringify({ ...student }),
                 headers: {
@@ -174,6 +176,7 @@ formTwo.onsubmit = async (event) => {
                 getAllData()
             }
         } catch (e) {
+            console.log(e);
             alert("error" + e)
         }
         formTwo.reset()
@@ -190,42 +193,59 @@ formTwo.onsubmit = async (event) => {
 
 }
 
-function reload(arr, place) {
-    place.innerHTML = ""
+function reload(arr) {
+    twentyFive.innerHTML = ""
+    fifty.innerHTML = ""
+    other.innerHTML = ""
 
     for (let item of arr) {
-        let delet = document.createElement("button")
-        let edit = document.createElement("button")
-        let btns = document.createElement("td")
-        let tr = document.createElement("tr")
-        for (let data of [(arr.indexOf(item) + 1), item.name, item.birth]) {
-            let td = document.createElement('td')
-            td.innerHTML = data
-            tr.append(td)
+        let man = document.createElement("div")
+        let name = document.createElement("h3")
+        let age = document.createElement("div")
+        let age_left = document.createElement("p")
+        let age_right = document.createElement("p")
+        let delet = document.createElement("div")
+
+        delet.classList.add("delet")
+        man.classList.add("man")
+        name.classList.add("name")
+        age.classList.add("age")
+
+        delet.innerHTML = "X"
+        name.innerHTML = item.name
+        age_left.innerHTML = "Age"
+        age_right.innerHTML = item.age
+
+        man.append(name, age, delet)
+        age.append(age_left, age_right)
+        if (item.age <= 25) {
+            twentyFive.prepend(man)
         }
-        edit.classList.add('edit')
-        delet.classList.add('trash')
-        tr.append(btns)
-        btns.prepend(edit, delet)
-        place.append(tr)
+        if (item.age > 25 && item.age <= 50) {
+            fifty.prepend(man)
+        }
+        if (item.age > 50) {
+            other.prepend(man)
+        }
 
         delet.onclick = async () => {
             const res = await fetch(base_url + "/todos/" + item.id, {
                 method: "delete"
             })
             if (res.status === 200 || res.status === 201) {
-                tr.style.opacity = "0"
-                tr.style.scale = "0"
+                man.style.opacity = "0"
+                man.style.scale = "0"
+                man.style.width = "0px"
                 setTimeout(() => {
-                    tr.remove()
+                    man.remove()
                 }, 500);
 
             }
 
         }
 
-        edit.onclick = async () => {
-            studentsID = item.id
+        age.onclick = async () => {
+            mansID = item.id
             window.style.display = "block"
             setTimeout(() => {
                 window.style.opacity = "1"

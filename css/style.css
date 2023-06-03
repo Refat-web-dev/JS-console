@@ -85,6 +85,11 @@ body {
     font-weight: 600;
     margin-bottom: 60px; }
 
+.container {
+  max-width: 1249px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); }
+
 .row {
   display: flex;
   align-items: end;
@@ -113,59 +118,6 @@ body {
     transition: .3s ease; }
     .row button:hover {
       opacity: .5; }
-
-table {
-  width: 73%; }
-
-th {
-  color: #4f647e;
-  text-align: start; }
-
-td {
-  font-weight: 600; }
-
-td,
-th {
-  padding: 20px 0;
-  border-bottom: 1px solid #aec4d8; }
-
-tr {
-  opacity: 1;
-  scale: 1;
-  transition: .5s linear; }
-
-.edit,
-.trash {
-  all: unset;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 80%;
-  transition: .3s;
-  border-radius: 10px;
-  padding: 5px; }
-  .edit:hover,
-  .trash:hover {
-    background: #8bc9d0; }
-
-.edit {
-  background-image: url(../img/icons/edit.svg); }
-  .edit:hover {
-    background-image: url(../img/icons/edit.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 80%; }
-
-.trash {
-  background-size: 50%;
-  background-image: url(../img/icons/trash.svg); }
-  .trash:hover {
-    background-image: url(../img/icons/trash.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 50%; }
 
 .modal_close {
   position: absolute;
@@ -204,3 +156,48 @@ tr {
   opacity: 0;
   scale: 0;
   transition: .3s ease; }
+
+.column {
+  display: flex;
+  flex-direction: column;
+  padding: 20px; }
+  .column:nth-child(2) {
+    min-width: 375px;
+    border-right: 2px solid #E7E7E7;
+    border-left: 2px solid #E7E7E7; }
+  .column .title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px; }
+
+.man {
+  cursor: pointer;
+  padding: 20px 15px;
+  border: 2px solid #F6F6F6;
+  border-radius: 10px;
+  width: 325px;
+  position: relative;
+  transition: .5s ease;
+  margin-bottom: 10px; }
+  .man .name {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 20px; }
+  .man .age {
+    border-radius: 10px;
+    padding: 5px;
+    background-color: #F8F8F9;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #686A76; }
+    .man .age p:last-child {
+      font-weight: 600; }
+
+.error {
+  border: 2px solid #ff5a5a; }
+
+.delet {
+  position: absolute;
+  top: 10px;
+  right: 10px; }
